@@ -107,6 +107,39 @@ The docs include:
 
 ---
 
+# MCP Registry
+
+NuBerea is published to the [official MCP Registry](https://registry.modelcontextprotocol.io) as `com.streamsapps/nuberea`.
+
+**Registry API:**
+```
+https://registry.modelcontextprotocol.io/v0.1/servers?search=com.streamsapps/nuberea
+```
+
+## Publishing a New Version
+
+Publishing is automated via GitHub Actions. To release a new version:
+
+1. Update `server.json` if needed (description, icons, etc.)
+2. Tag and push:
+
+```bash
+git tag v1.0.2
+git push origin v1.0.2
+```
+
+The workflow (`.github/workflows/publish-mcp.yml`) will:
+- Extract the version from the tag (e.g. `v1.0.2` → `1.0.2`)
+- Inject it into `server.json`
+- Authenticate via GitHub OIDC (no secrets needed)
+- Validate and publish to the MCP Registry
+
+**Authentication:** Uses DNS verification against `streamsapps.com` (ECDSA P-384). The private key is stored as the `MCP_PRIVATE_KEY` GitHub secret. The corresponding public key is published as a TXT record on `streamsapps.com`.
+
+**Note:** The `server.json` version in the repo can stay at any value; the workflow overwrites it from the git tag at publish time.
+
+---
+
 # About NuBerea
 
 NuBerea helps pastors, students, and believers study Scripture more deeply using AI while remaining rooted in biblical text and historic Christian theology.
