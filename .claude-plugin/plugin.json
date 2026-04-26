@@ -1,0 +1,28 @@
+{
+  "name": "nuberea",
+  "version": "1.0.1",
+  "description": "AI-powered Bible study assistant with integrated Greek and Hebrew lexicons, morphologically tagged biblical texts, cross-references, and theological concepts for interpreting Scripture responsibly.",
+  "author": {
+    "name": "Streams Apps",
+    "url": "https://nuberea.com"
+  },
+  "homepage": "https://nuberea.com/docs/mcp/",
+  "repository": "https://github.com/streamsapps/nuberea-mcp",
+  "license": "MIT",
+  "keywords": [
+    "bible",
+    "scripture",
+    "greek",
+    "hebrew",
+    "lexicon",
+    "theology",
+    "biblical-studies"
+  ],
+  "icon": "https://nuberea.com/android-chrome-512x512.png",
+  "mcpServers": {
+    "nuberea": {
+      "type": "http",
+      "url": "https://auth.aws-dev.streamsappsgslbex.com/mcp"
+    }
+  }
+}
