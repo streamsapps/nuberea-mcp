@@ -32,6 +32,103 @@ Documentation:
 
 ---
 
+# Claude Code plugin marketplace
+
+This repository follows Claude Code's marketplace layout:
+
+* `.claude-plugin/marketplace.json` defines the marketplace catalog.
+* `plugins/nuberea/.claude-plugin/plugin.json` defines the NuBerea plugin.
+
+## Install from GitHub
+
+### 1. Add the Nuberea marketplace
+
+```bash
+claude plugin marketplace add streamsapps/nuberea-mcp
+```
+
+To share the marketplace with a repository instead of your user profile, add `--scope project`.
+
+### 2. Install the Nuberea plugin
+
+```bash
+claude plugin install nuberea@nuberea
+```
+
+### 3. Start Claude Code
+
+```bash
+claude
+```
+
+### 4. Authenticate Nuberea
+
+Inside Claude Code, run:
+
+```text
+/mcp
+```
+
+Select `nuberea` and complete the authentication flow.
+
+### 5. Test Nuberea
+
+Try a prompt such as:
+
+```text
+Use Nuberea to look up John 1:1 in Greek and summarize the lexical notes.
+```
+
+## Updating
+
+Refresh the marketplace catalog and update the installed plugin:
+
+```bash
+claude plugin marketplace update nuberea
+claude plugin update nuberea
+```
+
+Restart Claude Code after updating so the new plugin version is loaded.
+
+## Uninstalling
+
+```bash
+claude plugin uninstall nuberea
+claude plugin marketplace remove nuberea
+```
+
+## Troubleshooting
+
+List configured marketplaces:
+
+```bash
+claude plugin marketplace list
+```
+
+List installed plugins:
+
+```bash
+claude plugin list
+```
+
+Check whether the MCP server is connected:
+
+```bash
+claude mcp list
+```
+
+Or inside Claude Code:
+
+```text
+/mcp
+```
+
+If Nuberea shows `Needs authentication`, run `/mcp`, select `nuberea`, and complete authentication.
+
+If authentication succeeds but reconnection fails, restart Claude Code.
+
+---
+
 # Quick Start
 
 ### 1. Create an account
@@ -72,13 +169,32 @@ Once connected, your AI client can call NuBerea tools for theological study and 
 
 # Example Use Cases
 
-NuBerea MCP enables AI systems to support:
+NuBerea MCP enables AI assistants to perform scholarly biblical research on demand. Try prompts like:
 
-* Biblical exegesis
-* Theological research
-* Sermon preparation
-* Scripture cross-reference exploration
-* AI-assisted Bible study
+### Greek & Hebrew Word Studies
+* *"Look up the Greek word ἀγάπη (agape) in the LSJ lexicon and show me every occurrence in 1 John."*
+* *"What does the Hebrew word חֶסֶד (chesed) mean in BDB, and where does it appear in the Psalms?"*
+* *"Give me the morphology of every word in John 1:1 from the Macula Greek dataset."*
+
+### Exegesis & Verse Analysis
+* *"Show me John 3:16 with word-by-word Greek morphology, lemmas, and Strong's numbers."*
+* *"Compare the Hebrew of Genesis 1:1 with the Septuagint Greek translation."*
+* *"What manuscripts contain Mark 16:9–20, and how do their transcriptions differ?"*
+
+### Cross-References & Theological Themes
+* *"Find Old Testament cross-references for Romans 3:23 and explain the theological connection."*
+* *"Trace the theme of 'covenant' across the Pentateuch using cross-reference data."*
+* *"Show me every NT quotation of Isaiah 53."*
+
+### Sermon & Study Preparation
+* *"Help me prepare a sermon on Philippians 2:5–11 — give me the Greek structure, key word studies, and historic interpretations."*
+* *"Build a Bible study outline on the parables of the kingdom in Matthew 13."*
+* *"Summarize the textual variants in 1 Corinthians 13 across the major manuscript traditions."*
+
+### Manuscript & Textual Criticism
+* *"Show me the Dead Sea Scrolls readings for Isaiah 7:14."*
+* *"Pull the CNTR transcription data for Codex Sinaiticus on John 1."*
+* *"Compare Aland's synopsis entries for the resurrection accounts across the Synoptic Gospels."*
 
 ---
 
@@ -116,27 +232,9 @@ NuBerea is published to the [official MCP Registry](https://registry.modelcontex
 https://registry.modelcontextprotocol.io/v0.1/servers?search=com.streamsapps/nuberea
 ```
 
-## Publishing a New Version
+# Contributing
 
-Publishing is automated via GitHub Actions. To release a new version:
-
-1. Update `server.json` if needed (description, icons, etc.)
-2. Tag and push:
-
-```bash
-git tag v1.0.2
-git push origin v1.0.2
-```
-
-The workflow (`.github/workflows/publish-mcp.yml`) will:
-- Extract the version from the tag (e.g. `v1.0.2` → `1.0.2`)
-- Inject it into `server.json`
-- Authenticate via GitHub OIDC (no secrets needed)
-- Validate and publish to the MCP Registry
-
-**Authentication:** Uses DNS verification against `streamsapps.com` (ECDSA P-384). The private key is stored as the `MCP_PRIVATE_KEY` GitHub secret. The corresponding public key is published as a TXT record on `streamsapps.com`.
-
-**Note:** The `server.json` version in the repo can stay at any value; the workflow overwrites it from the git tag at publish time.
+Contributor and release workflow documentation lives in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
