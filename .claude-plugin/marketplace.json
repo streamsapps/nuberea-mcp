@@ -1,16 +1,33 @@
 {
   "name": "nuberea",
   "metadata": {
-    "description": "Nuberea Bible study tools for Claude Code"
+    "description": "NuBerea Bible study tools for Claude Code"
   },
   "owner": {
-    "name": "Streams Apps",
-    "url": "https://nuberea.com/"
+    "name": "Streams, LLC",
+    "email": "support@streamsapps.com"
   },
   "plugins": [
     {
       "name": "nuberea",
-      "source": "./plugins/nuberea"
+      "source": "./plugins/nuberea",
+      "description": "AI-powered biblical research tools delivered through the NuBerea MCP server",
+      "homepage": "https://nuberea.com/docs/mcp/",
+      "repository": "https://github.com/streamsapps/nuberea-mcp",
+      "license": "Apache-2.0",
+      "keywords": [
+        "bible",
+        "scripture",
+        "theology",
+        "mcp",
+        "lexicon"
+      ],
+      "category": "research",
+      "tags": [
+        "biblical-studies",
+        "greek",
+        "hebrew"
+      ]
     }
   ]
 }
