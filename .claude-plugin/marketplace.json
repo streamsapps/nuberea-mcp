@@ -1,0 +1,16 @@
+{
+  "name": "nuberea",
+  "metadata": {
+    "description": "Nuberea Bible study tools for Claude Code"
+  },
+  "owner": {
+    "name": "Streams Apps",
+    "url": "https://nuberea.com/"
+  },
+  "plugins": [
+    {
+      "name": "nuberea",
+      "source": "./plugins/nuberea"
+    }
+  ]
+}
