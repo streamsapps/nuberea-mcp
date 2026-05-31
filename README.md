@@ -25,45 +25,79 @@ Learn more at **[https://nuberea.com](https://nuberea.com)**
 
 NuBerea provides an MCP server that allows AI clients to securely access NuBerea’s theological tools.
 
-Using MCP, assistants such as ChatGPT, Claude, or custom agents can interact with NuBerea’s research capabilities as structured tools.
+Using MCP, assistants such as ChatGPT, Claude, Cursor, Claude Desktop, or custom agents can interact with NuBerea’s research capabilities as structured tools.
 
-Documentation:
-[https://nuberea.com/docs/mcp/](https://nuberea.com/docs/mcp/)
+Full documentation: [https://nuberea.com/docs/mcp/](https://nuberea.com/docs/mcp/)
 
 ---
 
-# Claude Code plugin marketplace
+# Quick Start (any MCP client)
+
+This is the universal path for ChatGPT, Cursor, Claude Desktop, custom agents, and any other MCP-compatible client.
+
+### 1. Create an account
+
+Sign in or create a NuBerea account at [https://nuberea.com/login](https://nuberea.com/login).
+
+### 2. Add NuBerea to your MCP client
+
+Point your client at the NuBerea MCP server URL:
+
+```
+https://auth.aws-dev.streamsappsgslbex.com/mcp
+```
+
+Example MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "nuberea": {
+      "url": "https://auth.aws-dev.streamsappsgslbex.com/mcp"
+    }
+  }
+}
+```
+
+### 3. Authenticate
+
+NuBerea MCP uses token-based authentication with refresh tokens to maintain secure, long-lived sessions. Your client will prompt you to sign in on first use. See the [docs](https://nuberea.com/docs/mcp/) for client-specific setup.
+
+---
+
+# Claude Code plugin
+
+If you use **Claude Code**, NuBerea ships as a first-class plugin.
 
 This repository follows Claude Code's marketplace layout:
 
 * `.claude-plugin/marketplace.json` defines the marketplace catalog.
-* `plugins/nuberea/.claude-plugin/plugin.json` defines the NuBerea plugin.
+* `.claude-plugin/plugin.json` defines the NuBerea plugin.
 
-## Install from GitHub
+## Install
 
-### 1. Add the Nuberea marketplace
+Choose one of the marketplace sources below. The **Anthropic Community marketplace** is recommended for most users; use the **GitHub** source if you want preview builds direct from this repo.
 
-```bash
-claude plugin marketplace add streamsapps/nuberea-mcp
-```
+| | Anthropic Community (recommended) | GitHub (this repo) |
+|---|---|---|
+| **Add marketplace** | `claude plugin marketplace add anthropics/claude-plugins-community` | `claude plugin marketplace add streamsapps/nuberea-mcp` |
+| **Install** | `claude plugin install nuberea@claude-community` | `claude plugin install nuberea@nuberea` |
+| **Update** | `claude plugin marketplace update claude-community`<br>`claude plugin update nuberea@claude-community` | `claude plugin marketplace update nuberea`<br>`claude plugin update nuberea@nuberea` |
+| **Uninstall** | `claude plugin uninstall nuberea@claude-community`<br>`claude plugin marketplace remove claude-community` | `claude plugin uninstall nuberea@nuberea`<br>`claude plugin marketplace remove nuberea` |
 
-To share the marketplace with a repository instead of your user profile, add `--scope project`.
+> To scope a marketplace to a single repository instead of your user profile, append `--scope project` to the `marketplace add` command.
 
-### 2. Install the Nuberea plugin
+Restart Claude Code after updating so the new plugin version is loaded.
 
-```bash
-claude plugin install nuberea@nuberea
-```
+## Use
 
-### 3. Start Claude Code
+Start Claude Code:
 
 ```bash
 claude
 ```
 
-### 4. Authenticate Nuberea
-
-Inside Claude Code, run:
+Authenticate NuBerea (first run only):
 
 ```text
 /mcp
@@ -71,30 +105,10 @@ Inside Claude Code, run:
 
 Select `nuberea` and complete the authentication flow.
 
-### 5. Test Nuberea
-
 Try a prompt such as:
 
 ```text
 Use Nuberea to look up John 1:1 in Greek and summarize the lexical notes.
-```
-
-## Updating
-
-Refresh the marketplace catalog and update the installed plugin:
-
-```bash
-claude plugin marketplace update nuberea
-claude plugin update nuberea
-```
-
-Restart Claude Code after updating so the new plugin version is loaded.
-
-## Uninstalling
-
-```bash
-claude plugin uninstall nuberea
-claude plugin marketplace remove nuberea
 ```
 
 ## Troubleshooting
@@ -117,53 +131,9 @@ Check whether the MCP server is connected:
 claude mcp list
 ```
 
-Or inside Claude Code:
+Or inside Claude Code, run `/mcp`.
 
-```text
-/mcp
-```
-
-If Nuberea shows `Needs authentication`, run `/mcp`, select `nuberea`, and complete authentication.
-
-If authentication succeeds but reconnection fails, restart Claude Code.
-
----
-
-# Quick Start
-
-### 1. Create an account
-
-Create or sign in to a NuBerea account.
-
-```
-https://nuberea.com/login
-```
-
----
-
-### 2. Configure your MCP client
-
-Connect your MCP client to the NuBerea MCP server.
-
-```
-https://auth.aws-dev.streamsappsgslbex.com/mcp
-```
-
----
-
-### 3. Example MCP configuration
-
-```json
-{
-  "mcpServers": {
-    "nuberea": {
-      "url": "https://auth.aws-dev.streamsappsgslbex.com/mcp"
-    }
-  }
-}
-```
-
-Once connected, your AI client can call NuBerea tools for theological study and biblical research.
+If NuBerea shows `Needs authentication`, run `/mcp`, select `nuberea`, and complete authentication. If authentication succeeds but reconnection fails, restart Claude Code.
 
 ---
 
@@ -198,23 +168,9 @@ NuBerea MCP enables AI assistants to perform scholarly biblical research on dema
 
 ---
 
-# Authentication
-
-NuBerea MCP uses token-based authentication with refresh tokens to maintain secure, long-lived sessions for AI clients.
-
-See the documentation for setup instructions.
-
-[https://nuberea.com/docs/mcp/](https://nuberea.com/docs/mcp/)
-
----
-
 # Documentation
 
-Full documentation is available at:
-
-[https://nuberea.com/docs/mcp/](https://nuberea.com/docs/mcp/)
-
-The docs include:
+Full documentation is available at [https://nuberea.com/docs/mcp/](https://nuberea.com/docs/mcp/), including:
 
 * MCP server configuration
 * Authentication setup
@@ -222,15 +178,6 @@ The docs include:
 * Client integration examples
 
 ---
-
-# MCP Registry
-
-NuBerea is published to the [official MCP Registry](https://registry.modelcontextprotocol.io) as `com.streamsapps/nuberea`.
-
-**Registry API:**
-```
-https://registry.modelcontextprotocol.io/v0.1/servers?search=com.streamsapps/nuberea
-```
 
 # Contributing
 
@@ -243,3 +190,5 @@ Contributor and release workflow documentation lives in [CONTRIBUTING.md](CONTRI
 NuBerea helps pastors, students, and believers study Scripture more deeply using AI while remaining rooted in biblical text and historic Christian theology.
 
 [https://nuberea.com](https://nuberea.com)
+
+NuBerea is published to the [official MCP Registry](https://registry.modelcontextprotocol.io) as `com.streamsapps/nuberea` ([API](https://registry.modelcontextprotocol.io/v0.1/servers?search=com.streamsapps/nuberea)).

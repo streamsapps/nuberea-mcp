@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "nuberea",
-      "source": "./plugins/nuberea",
+      "source": "./",
       "description": "AI-powered biblical research tools delivered through the NuBerea MCP server",
       "homepage": "https://nuberea.com/docs/mcp/",
       "repository": "https://github.com/streamsapps/nuberea-mcp",
