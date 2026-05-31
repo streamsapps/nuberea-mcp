@@ -1,0 +1,3 @@
+# Auto-request GitHub Copilot review on every PR.
+# Pair with the "Require review from Code Owners" branch-protection rule.
+* @copilot-pull-request-reviewer
