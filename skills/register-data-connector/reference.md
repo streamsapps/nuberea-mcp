@@ -1,10 +1,12 @@
 # NuBerea catalog — SDK CLI reference
 
-Every command runs through the NuBerea SDK CLI (`@nuberea/sdk`). Use `nuberea`
-if it is on `PATH`, otherwise `npx -y -p @nuberea/sdk nuberea`. The CLI handles
-OAuth (`nuberea login`) and reuses the cached token; it talks to the `/v1`
-catalog control plane on the NuBerea MCP host. Add `--json` for raw JSON,
-`--base-url <url>` to target a non-default host.
+Every command runs through the NuBerea SDK CLI, published on npm as
+`@nuberea/sdk` (catalog commands require **v0.0.8+**). Run it with
+`npx -y -p @nuberea/sdk@latest nuberea <command>`, or a bare `nuberea` if
+v0.0.8+ is installed globally. The CLI handles OAuth (`nuberea login`) and
+reuses the cached token; it talks to the `/v1` catalog control plane on the
+NuBerea MCP host. Add `--json` for raw JSON, `--base-url <url>` to target a
+non-default host.
 
 The same operations are available programmatically via `client.catalog.*` in the
 SDK (`import { NuBerea } from '@nuberea/sdk'`).

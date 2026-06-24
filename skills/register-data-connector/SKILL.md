@@ -35,14 +35,26 @@ tenant ──▶ (glue_athena only) AWS trust ──▶ connector ──▶ tool
 
 ## Setup: the `nuberea` CLI
 
-All steps run through the SDK CLI. Resolve the command once and reuse it:
-
-- If `nuberea` is on `PATH` (installed via `npm i -g @nuberea/sdk`), use it.
-- Otherwise use `npx -y -p @nuberea/sdk nuberea …` (no install needed).
+The catalog commands ship in `@nuberea/sdk` **v0.0.8+**, published on npm. Use
+the published package directly — no install required:
 
 ```bash
-# pick whichever resolves; examples below say `nuberea`
-command -v nuberea >/dev/null 2>&1 && echo "nuberea" || echo "npx -y -p @nuberea/sdk nuberea"
+npx -y -p @nuberea/sdk@latest nuberea <command>
+```
+
+If `@nuberea/sdk` v0.0.8+ is installed globally (`npm i -g @nuberea/sdk`), you
+can shorten that to a bare `nuberea`. Resolve it once; the examples below write
+`nuberea` to mean whichever form you picked:
+
+```bash
+# use a global install only if it's new enough to include `catalog`;
+# otherwise fall back to the published package via npx
+if command -v nuberea >/dev/null 2>&1 && nuberea help 2>/dev/null | grep -q catalog; then
+  NUBEREA="nuberea"
+else
+  NUBEREA="npx -y -p @nuberea/sdk@latest nuberea"
+fi
+echo "using: $NUBEREA"
 ```
 
 Then make sure the user is signed in (opens a browser the first time; the token
