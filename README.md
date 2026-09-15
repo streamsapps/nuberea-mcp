@@ -111,6 +111,16 @@ Try a prompt such as:
 Use Nuberea to look up John 1:1 in Greek and summarize the lexical notes.
 ```
 
+The plugin also includes a subscription workflow. Ask Claude Code:
+
+```text
+Help me subscribe to NuBerea Plus yearly.
+```
+
+Claude uses `@nuberea/sdk` to create a Stripe-hosted Checkout link. You review
+and complete payment in your browser; Claude and NuBerea's SDK never receive
+your card or bank details.
+
 ## Troubleshooting
 
 List configured marketplaces:
@@ -164,6 +174,11 @@ NuBerea MCP enables AI assistants to perform scholarly biblical research on dema
 ### Manuscript & Textual Criticism
 * *"Pull the CNTR transcription data for Codex Sinaiticus on John 1."*
 * *"Compare Aland's synopsis entries for the resurrection accounts across the Synoptic Gospels."*
+
+### Account & Subscription
+
+* *"Help me subscribe to NuBerea Plus monthly."*
+* *"Create a yearly NuBerea Checkout link for me."*
 
 ---
 
