@@ -162,7 +162,6 @@ NuBerea MCP enables AI assistants to perform scholarly biblical research on dema
 * *"Summarize the textual variants in 1 Corinthians 13 across the major manuscript traditions."*
 
 ### Manuscript & Textual Criticism
-* *"Show me the Dead Sea Scrolls readings for Isaiah 7:14."*
 * *"Pull the CNTR transcription data for Codex Sinaiticus on John 1."*
 * *"Compare Aland's synopsis entries for the resurrection accounts across the Synoptic Gospels."*
 
