@@ -44,7 +44,7 @@ Sign in or create a NuBerea account at [https://nuberea.com/login](https://nuber
 Point your client at the NuBerea MCP server URL:
 
 ```
-https://auth.aws-dev.streamsappsgslbex.com/mcp
+https://mcp.nubereappe.com/mcp
 ```
 
 Example MCP configuration:
@@ -53,7 +53,7 @@ Example MCP configuration:
 {
   "mcpServers": {
     "nuberea": {
-      "url": "https://auth.aws-dev.streamsappsgslbex.com/mcp"
+      "url": "https://mcp.nubereappe.com/mcp"
     }
   }
 }
