@@ -44,7 +44,7 @@ Sign in or create a NuBerea account at [https://nuberea.com/login](https://nuber
 Point your client at the NuBerea MCP server URL:
 
 ```
-https://mcp.nubereappe.com/mcp
+https://mcp.nuberea.com/mcp
 ```
 
 Example MCP configuration:
@@ -53,7 +53,7 @@ Example MCP configuration:
 {
   "mcpServers": {
     "nuberea": {
-      "url": "https://mcp.nubereappe.com/mcp"
+      "url": "https://mcp.nuberea.com/mcp"
     }
   }
 }
