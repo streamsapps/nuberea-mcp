@@ -20,11 +20,11 @@
     "url": "https://github.com/streamsapps/nuberea-mcp",
     "source": "github"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.nubereappe.com/mcp"
+      "url": "https://mcp.nuberea.com/mcp"
     }
   ]
 }
