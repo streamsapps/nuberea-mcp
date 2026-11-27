@@ -163,7 +163,7 @@ NuBerea MCP enables AI assistants to perform scholarly biblical research on dema
 
 ### Manuscript & Textual Criticism
 * *"Pull the CNTR transcription data for Codex Sinaiticus on John 1."*
-* *"Compare Aland's synopsis entries for the resurrection accounts across the Synoptic Gospels."*
+* *"Find the UBS parallel-passage groups for Mark 16:1-8, then compare the returned Gospel passages."*
 
 ---
 
